@@ -12,3 +12,7 @@ func (this *AdminController) Index() {
 	this.Data["view"] = "index.tpl"
 	this.TplName = "admin/index.tpl"
 }
+
+func (this *AdminController) Tmp() {
+	this.TplName = "admin/tmp.tpl"
+}
