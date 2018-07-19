@@ -12,7 +12,7 @@ type Mysql struct {
 	db   *sql.DB
 }
 
-func (mysql *Mysql) Connect() *sql.DB {
+func (mysql *Mysql) Connect() {
 	mysql.user = "shark"
 	mysql.pass = "lfding"
 	dsn := mysql.user + ":" + mysql.pass + "@/go"
@@ -25,7 +25,10 @@ func (mysql *Mysql) Connect() *sql.DB {
 	if err != nil {
 		panic(err.Error())
 	}
-	fmt.Println("connect ok")
+	fmt.Println("ping ok")
 	mysql.db = db
-	return db
+}
+
+func (mysql *Mysql) Db() *sql.DB {
+	return mysql.db
 }

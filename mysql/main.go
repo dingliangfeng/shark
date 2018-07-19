@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"github.com/dingliangfeng/mysql/base"
 )
 
@@ -12,10 +11,9 @@ type Main struct {
 }
 
 func main() {
-	fmt.Println("begin")
 	main := Main{}
-	db := main.Mysql.Connect()
-	fmt.Println(main.str)
+	main.Mysql.Connect()
+	db := main.Mysql.Db()
 	db.Query("INSERT INTO user (name) VALUES ('dingliangfeng')")
 	defer db.Close()
 }
